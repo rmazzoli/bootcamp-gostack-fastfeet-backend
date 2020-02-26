@@ -6,6 +6,7 @@ import UserController from './app/controllers/UserController';
 import RecipientController from './app/controllers/RecipientController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import FileController from './app/controllers/FileController';
+import OrderController from './app/controllers/OrderController';
 import SessionController from './app/controllers/SessionController';
 import authMiddleware from './app/middlewares/auth';
 
@@ -28,6 +29,8 @@ routes.get('/deliveryman/:id', DeliverymanController.findOne);
 routes.post('/deliveryman', DeliverymanController.store);
 routes.put('/deliveryman/:id', DeliverymanController.update);
 routes.delete('/deliveryman/:id', DeliverymanController.delete);
+
+routes.post('/order', OrderController.store);
 
 routes.post('/files', upload.single('file'), FileController.store);
 routes.get('/', (req, res) => {
